@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_mtoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/20 16:14:41 by lmicheli         ###   ########.fr       */
+/*   Created: 2023/11/20 16:57:56 by lmicheli          #+#    #+#             */
+/*   Updated: 2023/11/20 17:01:34 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "Push_swap.h"
 
-# include "ft_printf/libft/libft.h"
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include "ft_printf/ft_printf.h"
+int	*ft_mtoi(char **array)
+{
+	int	*stack;
+	int	i;
 
-int		ft_check_stack(char **array);
-int		ft_min(int a, int b);
-void	ft_free_matrix(char **array);
-
-#endif
+	i = 0;
+	while (array[i])
+		i++;
+	stack = malloc(sizeof(int) * i);
+	i = 0;
+	while (array[i])
+	{
+		stack[i] = ft_atoi(array[i]);
+		i++;
+	}
+	return (stack);
+}
+// Path: ft_mtoi.c
+// Compare this snippet from Push_swap.h:

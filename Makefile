@@ -6,7 +6,7 @@
 #    By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 11:05:48 by lmicheli          #+#    #+#              #
-#    Updated: 2023/11/20 11:08:38 by lmicheli         ###   ########.fr        #
+#    Updated: 2023/11/20 15:12:53 by lmicheli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = push_swap.a
 
 CC = cc -Wall -Wextra -Werror
 
-SRC = Push_swap.c
+SRC = Push_swap.c ft_check_stack.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:03:04 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/20 16:57:43 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:21:05 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(int args, char **argv)
 		stack_pre = argv + 1;
 		ft_check_stack(stack_pre);
 	}
-	ft_mtoi(stack_pre);
+	stack_a = ft_mtoi(stack_pre);
+	ft_free_matrix(stack_pre);
+	ft_sort(stack_a, stack_b, args - 1);
 	return (0);
 }

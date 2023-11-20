@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:43:29 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/20 15:44:21 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/20 17:25:03 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_check_stack(char **array)
 			{
 				write (2, "Error\n", 6);
 				ft_free_matrix(array);
-				exit ;
+				exit(0);
 			}
 			j++;
 		}

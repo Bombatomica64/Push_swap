@@ -6,11 +6,34 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:57:56 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/20 17:25:11 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:30:02 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
+
+void	check_for_dupes(int *stack, int size)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size)
+	{
+		j = i + 1;
+		while (j < size)
+		{
+			if (stack[i] == stack[j])
+			{
+				write(2, "Error\n", 6);
+				free(stack);
+				exit(0);
+			}
+			j++;
+		}
+		i++;
+	}
+}
 
 int	ft_check_for_non_int(char *str)
 {
@@ -58,6 +81,7 @@ int	*ft_mtoi(char **array)
 		}
 		i++;
 	}
+	check_for_dupes(stack, i);
 	return (stack);
 }
 // Path: ft_mtoi.c

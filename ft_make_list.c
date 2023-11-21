@@ -6,12 +6,11 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:48:46 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 15:28:58 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:15:52 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
-#include <stddef.h>
 
 t_stack_node	*ft_make_list(int *stack, int size)
 {
@@ -80,7 +79,7 @@ t_stack_node	*ft_lst_first(t_stack_node **stack)
 	return (current);
 }
 
-t_stack_node	ft_lst_last(t_stack_node *stack)
+t_stack_node	*ft_lst_last(t_stack_node *stack)
 {
 	t_stack_node	*current;
 

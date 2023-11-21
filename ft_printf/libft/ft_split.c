@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:24:52 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 15:59:36 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:21:24 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static char	**ft_enter(char const *s, char c, char **s2, int clines)
 		cchar = 0;
 		nword++;
 	}
-	s2[nword] = 0;
+	s2[nword] = '\0';
 	return (s2);
 }
 

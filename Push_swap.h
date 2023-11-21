@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 17:30:32 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/21 18:30:18 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,11 @@ void			ft_sb(t_stack_node **stack_b);
 void			ft_ss(t_stack_node **stack_a, t_stack_node **stack_b);
 void			ft_pa(t_stack_node **stack_a, t_stack_node **stack_b);
 void			ft_pb(t_stack_node **stack_a, t_stack_node **stack_b);
+void			ft_ra(t_stack_node **stack_a);
+void			ft_rb(t_stack_node **stack_b);
+void			ft_rr(t_stack_node **stack_a, t_stack_node **stack_b);
+void			ft_rra(t_stack_node **stack_a);
+void			ft_rrb(t_stack_node **stack_b);
+void			ft_rrr(t_stack_node **stack_a, t_stack_node **stack_b);
 
 #endif

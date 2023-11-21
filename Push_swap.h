@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 17:21:15 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/21 17:30:32 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int				*ft_mtoi(char **array);
 int				ft_matrix_len(char **array);
 void			ft_sort(int *stack_a, int *stack_b, int size);
 void			ft_free_matrix(char **array);
+void			check_for_dupes(int *stack, int size);
 t_stack_node	*ft_stack_node_new(int nbr);
 t_stack_node	*ft_make_list(int *stack, int size);
 t_stack_node	*ft_node_last(t_stack_node *stack);

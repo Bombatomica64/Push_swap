@@ -6,11 +6,21 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:03:04 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/20 17:21:05 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:38:15 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
+
+void	ft_sort(int *stack_a, int *stack_b, int size)
+{
+	int				i;
+	t_stack_node	*a_stack;
+	t_stack_node	*b_stack;
+
+	a_stack = ft_make_list(stack_a, size);
+	b_stack = ft_make_list(stack_b, size);
+}
 
 int	main(int args, char **argv)
 {
@@ -33,7 +43,9 @@ int	main(int args, char **argv)
 		ft_check_stack(stack_pre);
 	}
 	stack_a = ft_mtoi(stack_pre);
+	args = ft_matrix_len(stack_pre);
 	ft_free_matrix(stack_pre);
-	ft_sort(stack_a, stack_b, args - 1);
+	stack_b = NULL;
+	ft_sort(stack_a, stack_b, args);
 	return (0);
 }

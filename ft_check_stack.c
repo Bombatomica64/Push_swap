@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:43:29 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/20 17:25:03 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/20 18:07:10 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	ft_free_matrix(char **array)
 		free(array[i]);
 		i++;
 	}
+	free(array);
 }
 
 int	ft_check_stack(char **array)
@@ -46,15 +47,16 @@ int	ft_check_stack(char **array)
 		while (array[j])
 		{
 			min = ft_min(ft_strlen(temp), ft_strlen(array[j]));
-			if (ft_strncmp(temp, array[j], min) == 0)
+			if (ft_strncmp(temp, array[j++], min) == 0)
 			{
 				write (2, "Error\n", 6);
 				ft_free_matrix(array);
+				free(temp);
 				exit(0);
 			}
-			j++;
 		}
 		i++;
 	}
+	free(temp);
 	return (1);
 }

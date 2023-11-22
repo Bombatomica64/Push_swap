@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:03:04 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/22 16:10:26 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:48:04 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int args, char **argv)
 
 	if (args <= 1)
 		return (0);
- 	if (args == 2)
+	if (args == 2)
 	{
 		stack_pre = ft_split(argv[1], ' ');
 		ft_check_stack(stack_pre);

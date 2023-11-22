@@ -6,11 +6,17 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:35:30 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 17:43:35 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:44:47 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
+
+void	ft_ra_pre(t_stack_node **a_stack)
+{
+	ft_ra(a_stack);
+	write(1, "ra\n", 3);
+}
 
 void	ft_ra(t_stack_node **stack_a)
 {
@@ -26,23 +32,11 @@ void	ft_ra(t_stack_node **stack_a)
 		last = last->next;
 	last->next = temp;
 	temp->next = NULL;
-	write(1, "ra\n", 3);
 }
 
 void	ft_rb(t_stack_node **stack_b)
 {
-	t_stack_node	*temp;
-	t_stack_node	*last;
-
-	if (!(*stack_b) || !(*stack_b)->next)
-		return ;
-	temp = *stack_b;
-	*stack_b = (*stack_b)->next;
-	last = *stack_b;
-	while (last->next)
-		last = last->next;
-	last->next = temp;
-	temp->next = NULL;
+	ft_ra(stack_b);
 	write(1, "rb\n", 3);
 }
 

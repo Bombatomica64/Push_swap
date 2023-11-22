@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:03:04 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 17:27:45 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:10:26 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,13 @@ void	ft_sort(int *stack_a, int *stack_b, int size)
 	t_stack_node	*b_stack;
 
 	ft_make_lists(stack_a, stack_b, size);
+	if (size <= 3)
+	{
+		ft_sort_three(&a_stack, &b_stack, size);
+		return ;
+	}
+	else
+		return ;
 }
 
 int	main(int args, char **argv)
@@ -28,10 +35,8 @@ int	main(int args, char **argv)
 	char	**stack_pre;
 
 	if (args <= 1)
-	{
 		return (0);
-	}
-	if (args == 2)
+ 	if (args == 2)
 	{
 		stack_pre = ft_split(argv[1], ' ');
 		ft_check_stack(stack_pre);

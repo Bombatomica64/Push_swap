@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   misc.c                                             :+:      :+:    :+:   */
+/*   ft_sort_3.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 17:16:11 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/22 16:05:13 by lmicheli         ###   ########.fr       */
+/*   Created: 2023/11/22 16:10:44 by lmicheli          #+#    #+#             */
+/*   Updated: 2023/11/22 16:23:40 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-void	make_lists(int *stack_a, int *stack_b, int size)
+int	check_if_sorted(t_stack_node **a_stack)
 {
 	int				i;
-	t_stack_node	*a_stack;
-	t_stack_node	*b_stack;
-
-	a_stack = ft_make_list(stack_a, size);
-	b_stack = ft_make_list(stack_b, size);
-}
-
-int	*ft_array_dup(int *stack_a, int size)
-{
-	int	i;
-	int	*dup;
+	t_stack_node	*tmp;
 
 	i = 0;
-	dup = malloc(sizeof(int) * size);
-	if (!dup)
-		return (NULL);
-	while (i < size)
+	tmp = *a_stack;
+	while (tmp->next)
 	{
-		dup[i] = stack_a[i];
-		i++;
+		if (tmp->nbr > tmp->next->nbr)
+			return (0);
+		tmp = tmp->next;
 	}
-	return (dup);
+	return (1);
+}
+
+void	ft_sort_three(t_stack_node **a_stack, int size)
+{
+	int		i;
+	int		sorted;
+
+	sorted = 0;
+	i = 0;
+	while (!sorted)
+	{
+		if ((*a_stack)->next->nbr > (*a_stack)->nbr)
+			ft_sa(a_stack);
+		else if ((*a_stack)->next->nbr < (*a_stack)->nbr)
+			ft_rra(a_stack);
+		
+	}
 }

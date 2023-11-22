@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 18:30:18 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/22 16:27:37 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,19 @@
 
 #define NULL ((void*)0)
 
-typedef struct s_list
+typedef struct s_stack_node
 {
 	int				nbr;
-	struct s_list	*prev;
-	struct s_list	*next;
+	struct s_stack_node	*prev;
+	struct s_stack_node	*next;
 }		t_stack_node;
+
+/* typedef struct s_leonardo
+{
+	int			p;
+	int			r;
+	int			q;
+}	t_leonardo; */
 
 int				ft_check_stack(char **array);
 int				ft_max(int a, int b);

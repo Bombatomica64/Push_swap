@@ -6,21 +6,19 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/22 17:34:41 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:08:38 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf/libft/libft.h"
+# include "../ft_printf/libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stddef.h>
-# include "ft_printf/ft_printf.h"
-
-#define NULL ((void*)0)
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_stack_node
 {
@@ -49,8 +47,9 @@ t_stack_node	*ft_make_list(int *stack, int size);
 t_stack_node	*ft_node_last(t_stack_node *stack);
 t_stack_node	*ft_node_first(t_stack_node *stack);
 void			ft_node_add_back(t_stack_node **stack, t_stack_node *new_node);
-void			make_lists(int *stack_a, int *stack_b, int size);
-void			ft_sort_three(t_stack_node **a_stack, int size);
+void			ft_node_add_front(t_stack_node **stack, t_stack_node *new_node);
+void			ft_sort_three(t_stack_node **a_stack);
+void			ft_sort_5(t_stack_node **a_stack);
 void			ft_sa_pre(t_stack_node **stack_a);
 void			ft_sa(t_stack_node **stack_a);
 void			ft_sb(t_stack_node **stack_b);

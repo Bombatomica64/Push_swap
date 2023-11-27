@@ -6,105 +6,97 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:24:52 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 18:21:24 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:01:39 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 #include "libft.h"
 
-static char	**free_array(char **ptr, int i)
-{
-	while (i > 0)
-	{
-		i--;
-		free(ptr[i]);
-	}
-	free(ptr);
-	return (0);
-}
-
-static int	ft_clines(char const *str, char c)
+static int	count_split_words(const char *s, char c)
 {
 	int	i;
-	int	count;
+	int	words;
 
 	i = 0;
-	count = 0;
-	while (str[i] != '\0')
+	words = 0;
+	while (s[i] != '\0')
 	{
-		if (str[i] == c)
-			i++;
-		else
+		while (s[i] == c && s[i])
 		{
-			count++;
-			while (str[i] && str[i] != c)
+			i++;
+		}
+		if (s[i] != c && s[i])
+		{
+			words++;
+			i++;
+			while (s[i] != c && s[i])
+			{
 				i++;
+			}
 		}
 	}
-	return (count);
+	return (words);
 }
 
-static char	*ft_putword(char *nword, char const *s, int i, int cchar)
-{
-	int	j;
-
-	j = 0;
-	while (cchar > 0)
-	{
-		nword[j] = s[i - cchar];
-		j++;
-		cchar--;
-	}
-	nword[j] = '\0';
-	return (nword);
-}
-
-static char	**ft_enter(char const *s, char c, char **s2, int clines)
+static int	ft_chkrow(char **mtx, char *row)
 {
 	int	i;
-	int	nword;
-	int	cchar;
 
 	i = 0;
-	nword = 0;
-	cchar = 0;
-	while (nword < clines)
+	if (!row)
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		while (s[i] && s[i] != c)
+		while (mtx[i])
 		{
+			free(mtx[i]);
 			i++;
-			cchar++;
 		}
-		s2[nword] = (char *)malloc(sizeof(char) * (cchar + 1));
-		if (!s2)
-			return (free_array(s2, nword));
-		ft_putword(s2[nword], s, i, cchar);
-		cchar = 0;
-		nword++;
+		free(mtx);
+		return (0);
 	}
-	s2[nword] = '\0';
-	return (s2);
+	return (1);
+}
+
+static size_t	ft_lencalc(char *s, char c)
+{
+	size_t	len;
+
+	if (!ft_strchr(s, c))
+		len = ft_strlen(s);
+	else
+		len = ft_strchr(s, c) - s;
+	return (len);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	char			**s2;
-	unsigned int	clines;
+	char	**array;
+	size_t	len;
+	size_t	i;
 
-	if (!s)
-		return (0);
-	clines = ft_clines(s, c);
-	s2 = (char **)malloc(sizeof(char *) * (clines + 1));
-	if (!s2)
-		return (0);
-	s2 = ft_enter(s, c, s2, clines);
-	return (s2);
+	i = 0;
+	array = (char **)malloc(sizeof(char *) * (count_split_words(s, c) + 1));
+	if (!array)
+		return (NULL);
+	while (*s)
+	{
+		while (*s && *s == c)
+			s++;
+		if (*s && *s != c)
+		{
+			len = ft_lencalc((char *)s, c);
+			array[i] = ft_substr(s, 0, len);
+			if (ft_chkrow(array, array[i++]) == 0)
+				return (NULL);
+			s += len;
+		}
+	}
+	array[i] = NULL;
+	return (array);
 }
 /*
-static char	*create_sub_str(int start, char const *s, char c)
+static char	*create_sub_str(int start, char const *s, cha#define NULL ((void*)0)
+r c)
 {
 	size_t		sub_str_len;
 	size_t		i;
@@ -181,7 +173,7 @@ char	**ft_split(char const *s, char c)
 	return (matrix);
 }
 
-/*int main()
+int main()
 {
 	char	*input = "   lorem\""
 	char	**result = ft_split(input, 32);

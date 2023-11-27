@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:10:44 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/22 16:23:40 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:47:20 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	check_if_sorted(t_stack_node **a_stack)
 	return (1);
 }
 
-void	ft_sort_three(t_stack_node **a_stack, int size)
+void	ft_sort_three(t_stack_node **a_stack)
 {
 	int		i;
 	int		sorted;
@@ -37,10 +37,27 @@ void	ft_sort_three(t_stack_node **a_stack, int size)
 	i = 0;
 	while (!sorted)
 	{
-		if ((*a_stack)->next->nbr > (*a_stack)->nbr)
+		if ((*a_stack)->next->nbr < (*a_stack)->nbr)
 			ft_sa(a_stack);
-		else if ((*a_stack)->next->nbr < (*a_stack)->nbr)
+		else if ((*a_stack)->next->nbr > (*a_stack)->nbr)
 			ft_rra(a_stack);
-		
+		sorted = check_if_sorted(a_stack);
+	}
+}
+
+void	ft_sort_5(t_stack_node **a_stack)
+{
+	int		i;
+	int		sorted;
+
+	sorted = 0;
+	i = 0;
+	while (!sorted)
+	{
+		if ((*a_stack)->next->nbr < (*a_stack)->nbr)
+			ft_sa(a_stack);
+		else if ((*a_stack)->next->nbr > (*a_stack)->nbr)
+			ft_rra(a_stack);
+		sorted = check_if_sorted(a_stack);
 	}
 }

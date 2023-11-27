@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:41:37 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/22 16:42:19 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/27 11:43:31 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,17 @@ void	ft_pb(t_stack_node **a_stack, t_stack_node **b_stack)
 		return ;
 	ft_pa(b_stack, a_stack);
 	write(1, "pb\n", 3);
+}
+void	ft_node_add_front(t_stack_node **stack, t_stack_node *new)
+{
+	if (!new)
+		return ;
+	if (!(*stack))
+	{
+		*stack = new;
+		return ;
+	}
+	new->next = *stack;
+	(*stack)->prev = new;
+	*stack = new;
 }

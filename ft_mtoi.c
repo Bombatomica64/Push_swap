@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:57:56 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 17:39:27 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:20:21 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	check_for_dupes(int *stack, int size)
 		{
 			if (stack[i] == stack[j])
 			{
-				write(2, "Error\n", 6);
+				write(2, "Error:3\n", 7);
 				free(stack);
 				exit(0);
 			}

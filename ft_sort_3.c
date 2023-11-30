@@ -6,58 +6,97 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:10:44 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/27 11:47:20 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/30 17:14:19 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-int	check_if_sorted(t_stack_node **a_stack)
+int	check_if_sorted(t_stack **a_stack)
 {
-	int				i;
-	t_stack_node	*tmp;
+	t_stack	*tmp;
 
-	i = 0;
 	tmp = *a_stack;
-	while (tmp->next)
+	while (tmp && tmp->next)
 	{
-		if (tmp->nbr > tmp->next->nbr)
+		if (tmp->nbr > tmp->next->nbr && tmp->next)
 			return (0);
 		tmp = tmp->next;
 	}
 	return (1);
 }
 
-void	ft_sort_three(t_stack_node **a_stack)
+void	ft_sort_three(t_stack **a_stack, int fd)
 {
-	int		i;
 	int		sorted;
 
-	sorted = 0;
-	i = 0;
-	while (!sorted)
+	sorted = check_if_sorted(a_stack);
+	while (sorted != 1)
 	{
 		if ((*a_stack)->next->nbr < (*a_stack)->nbr)
-			ft_sa(a_stack);
+			ft_sa_pre(a_stack, fd);
 		else if ((*a_stack)->next->nbr > (*a_stack)->nbr)
-			ft_rra(a_stack);
+			ft_rra_pre(a_stack, fd);
 		sorted = check_if_sorted(a_stack);
 	}
+	return ;
 }
 
-void	ft_sort_5(t_stack_node **a_stack)
+void	ft_sort_5(t_stack **a_stack, t_stack **b_stack, int fd)
 {
 	int		i;
 	int		sorted;
 
-	sorted = 0;
+	sorted = check_if_sorted(a_stack);
 	i = 0;
-	while (!sorted)
+	if (sorted == 0)
 	{
-		if ((*a_stack)->next->nbr < (*a_stack)->nbr)
-			ft_sa(a_stack);
-		else if ((*a_stack)->next->nbr > (*a_stack)->nbr)
-			ft_rra(a_stack);
-		sorted = check_if_sorted(a_stack);
+		ft_pb(a_stack, b_stack, fd);
+		ft_pb(a_stack, b_stack, fd);
+		if ((*b_stack)->nbr > (*b_stack)->next->nbr)
+			ft_sb(b_stack, fd);
+		ft_sort_three(a_stack, fd);
+		while (*b_stack)
+		{
+			i = place_to_put(a_stack, (*b_stack)->nbr);
+			ft_print_stack(*a_stack);
+			ft_printf("i: %d\n", i);
+			if (i == 0)
+				ft_pa_pre(a_stack, b_stack, fd);
+			else if (i > 0)
+			{
+				while (i-- > 0)
+					ft_ra_pre(a_stack, fd);
+				ft_pa_pre(a_stack, b_stack, fd);
+			}
+			else if (i < 0)
+			{
+				while (i++ < 0)
+					ft_rra_pre(a_stack, fd);
+				ft_pa_pre(a_stack, b_stack, fd);
+			}
+			ft_print_stack(*a_stack);
+			ft_printf("\n");
+			sorted = check_if_sorted(a_stack);
+		}
 	}
+	ft_print_stack(*a_stack);
+	ft_printf("sorted: %d\n", sorted);
+}
+
+int	place_to_put(t_stack **a_stack, int nbr)
+{
+	t_stack	*tmp;
+	int		i;
+
+	i = 0;
+	tmp = *a_stack;
+	while (tmp)
+	{
+		if (nbr <= tmp->nbr && (tmp->prev == NULL || nbr >= tmp->prev->nbr))
+			return (i);
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }

@@ -6,21 +6,23 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:48:46 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/21 17:15:52 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/29 16:51:14 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-t_stack_node	*ft_make_list(int *stack, int size)
+t_stack	*ft_make_list(int *stack, int size)
 {
-	t_stack_node	*stack_a;
-	t_stack_node	*new_node;
-	t_stack_node	*prev_node;
+	t_stack	*stack_a;
+	t_stack	*new_node;
+	t_stack	*prev_node;
 	int				i;
 
 	i = 0;
 	stack_a = NULL;
+	if (stack == NULL)
+		return (stack_a);
 	while (i < size)
 	{
 		new_node = ft_stack_node_new(stack[i]);
@@ -33,11 +35,11 @@ t_stack_node	*ft_make_list(int *stack, int size)
 	return (stack_a);
 }
 
-t_stack_node	*ft_stack_node_new(int nbr)
+t_stack	*ft_stack_node_new(int nbr)
 {
-	t_stack_node	*new_node;
+	t_stack	*new_node;
 
-	new_node = (t_stack_node *)malloc(sizeof(t_stack_node));
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node)
 	{
 		new_node->nbr = nbr;
@@ -49,9 +51,9 @@ t_stack_node	*ft_stack_node_new(int nbr)
 	return (new_node);
 }
 
-void	ft_node_add_back(t_stack_node **stack, t_stack_node *new_node)
+void	ft_node_add_back(t_stack **stack, t_stack *new_node)
 {
-	t_stack_node	*current;
+	t_stack	*current;
 
 	if (!stack || !new_node)
 		return ;
@@ -67,9 +69,9 @@ void	ft_node_add_back(t_stack_node **stack, t_stack_node *new_node)
 	}
 }
 
-t_stack_node	*ft_lst_first(t_stack_node **stack)
+t_stack	*ft_lst_first(t_stack **stack)
 {
-	t_stack_node	*current;
+	t_stack	*current;
 
 	if (!stack)
 		return (NULL);
@@ -79,9 +81,9 @@ t_stack_node	*ft_lst_first(t_stack_node **stack)
 	return (current);
 }
 
-t_stack_node	*ft_lst_last(t_stack_node *stack)
+t_stack	*ft_lst_last(t_stack *stack)
 {
-	t_stack_node	*current;
+	t_stack	*current;
 
 	if (!stack)
 		return (NULL);

@@ -6,21 +6,21 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 18:35:36 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/22 16:41:53 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/29 17:14:32 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-void	ft_sa_pre(t_stack_node **a_stack)
+void	ft_sa_pre(t_stack **a_stack, int fd)
 {
 	ft_sa(a_stack);
-	write(1, "sa\n", 3);
+	write(fd, "sa\n", 3);
 }
 
-void	ft_sa(t_stack_node **a_stack)
+void	ft_sa(t_stack **a_stack)
 {
-	t_stack_node	*tmp;
+	t_stack	*tmp;
 
 	if (!(*a_stack) || !(*a_stack)->next)
 		return ;
@@ -32,15 +32,15 @@ void	ft_sa(t_stack_node **a_stack)
 	tmp->prev = *a_stack;
 }
 
-void	ft_sb(t_stack_node **b_stack)
+void	ft_sb(t_stack **b_stack, int fd)
 {
 	ft_sa(b_stack);
-	write(1, "sb\n", 3);
+	write(fd, "sb\n", 3);
 }
 
-void	ft_ss(t_stack_node **a_stack, t_stack_node **b_stack)
+void	ft_ss(t_stack **a_stack, t_stack **b_stack, int fd)
 {
 	ft_sa(a_stack);
 	ft_sa(b_stack);
-	write(1, "ss\n", 3);
+	write(fd, "ss\n", 3);
 }

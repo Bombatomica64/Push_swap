@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:43:29 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/27 12:17:55 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:20:55 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,11 @@ void	ft_free_matrix(char **array)
 	while (array[i])
 	{
 		free(array[i]);
+		array[i] = NULL;
 		i++;
 	}
 	free(array);
+	array = NULL;
 }
 
 int	ft_check_stack(char **array)

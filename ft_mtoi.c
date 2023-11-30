@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:57:56 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/27 12:20:21 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/11/30 15:19:58 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_for_dupes(int *stack, int size)
 			if (stack[i] == stack[j])
 			{
 				write(2, "Error:3\n", 7);
-				free(stack);
+			//	free(stack);
 				exit(0);
 			}
 			j++;
@@ -75,11 +75,11 @@ int	*ft_mtoi(char **array)
 	i = 0;
 	while (array[i])
 	{
-		if (!ft_check_for_non_int(array[i]))
+		if (ft_check_for_non_int(array[i]) == 1)
 			stack[i] = ft_atoi(array[i]);
 		else
 		{
-			write(2, "Error\n", 6);
+			write(2, "Error:4\n", 8);
 			ft_free_matrix(array);
 			exit(0);
 		}

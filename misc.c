@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:16:11 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/29 16:51:14 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:12:49 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	*ft_array_dup(int *stack_a, int size)
 {
-	int	i;
-	int	*dup;
+	int		i;
+	int		*dup;
 
 	i = 0;
 	dup = malloc(sizeof(int) * size);
@@ -32,7 +32,7 @@ int	*ft_array_dup(int *stack_a, int size)
 int	ft_list_size(t_stack *stack)
 {
 	int				i;
-	t_stack	*tmp;
+	t_stack			*tmp;
 
 	i = 0;
 	tmp = stack;

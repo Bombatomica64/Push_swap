@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/29 18:25:23 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/03 16:20:13 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_stack_node
 {
 	int						nbr;
+	int						index;
 	struct s_stack_node		*prev;
 	struct s_stack_node		*next;
 }		t_stack;
@@ -35,10 +36,11 @@ int				ft_matrix_len(char **array);
 int				check_if_sorted(t_stack **a_stack);
 int				ft_list_size(t_stack *stack);
 int				place_to_put(t_stack **a_stack, int nbr);
+int				ft_next_min(t_stack *stack, int min);
 void			ft_sort(int *stack_a, int *stack_b, int size, int fd);
 void			ft_free_matrix(char **array);
 void			check_for_dupes(int *stack, int size);
-t_stack			*ft_stack_node_new(int nbr);
+t_stack			*ft_stack_node_new(int nbr, int index);
 t_stack			*ft_make_list(int *stack, int size);
 t_stack			*lst_lst(t_stack *stack);
 t_stack			*ft_node_first(t_stack *stack);
@@ -62,5 +64,6 @@ void			ft_rra(t_stack **stack_a);
 void			ft_rrb(t_stack **stack_b, int fd);
 void			ft_rrr(t_stack **stack_a, t_stack **stack_b, int fd);
 void			ft_print_stack(t_stack *stack);
+void			ft_index_stack(t_stack **stack);
 
 #endif

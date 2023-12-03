@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:43:04 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/30 10:24:26 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:25:24 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,3 @@ void	ft_rr(t_stack **stack_a, t_stack **stack_b, int fd)
 	ft_ra(stack_b);
 	write(fd, "rr\n", 3);
 }
-// Compare this snippet from ft_make_list.c:

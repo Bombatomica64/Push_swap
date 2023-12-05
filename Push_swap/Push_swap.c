@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:03:04 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/04 17:47:34 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/05 15:20:47 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ void	ft_sort(int *stack_a, int *stack_b, int size, int fd)
 		ft_sort_5(&a_stack, &b_stack, fd);
 		return ;
 	}
-	ft_index_stack(&a_stack);
-	ft_print_stack(a_stack);
-	//ft_big_radix_sort(&a_stack, &b_stack);
 	return ;
 }
 
@@ -68,6 +65,7 @@ int	main(int args, char **argv)
 	if (!stack_a)
 	{
 		write(2, "Error\n", 6);
+		ft_free_matrix(stack_pre);
 		return (0);
 	}
 	args = ft_matrix_len(stack_pre);

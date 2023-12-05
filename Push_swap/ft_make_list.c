@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:48:46 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/04 17:48:36 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:32:54 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ t_stack	*ft_make_list(int *stack, int size)
 		prev_node = new_node;
 		i++;
 	}
-	ft_index_stack(&stack_a);
 	return (stack_a);
 }
 

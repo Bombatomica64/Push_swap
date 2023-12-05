@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/21 17:35:30 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/29 17:41:03 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/05 16:21:49 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,22 @@ void	ft_rra_pre(t_stack **a_stack, int fd)
 	write(fd, "rra\n", 4);
 }
 
-void	ft_rra(t_stack **stack_a)
+void	ft_rra(t_stack **a_stack)
 {
-	t_stack	*temp;
+	t_stack	*tmp;
 	t_stack	*last;
 
-	if (!(*stack_a) || !(*stack_a)->next)
+	if (!(*a_stack) || !(*a_stack)->next)
 		return ;
-	temp = *stack_a;
-	*stack_a = (*stack_a)->next;
-	last = *stack_a;
-	while (last->next)
-		last = last->next;
-	last->next = temp;
-	temp->next = NULL;
+	tmp = *a_stack;
+	while (tmp->next)
+	{
+		last = tmp;
+		tmp = tmp->next;
+	}
+	last->next = NULL;
+	tmp->next = *a_stack;
+	*a_stack = tmp;
 }
 
 void	ft_rrb(t_stack **stack_b, int fd)

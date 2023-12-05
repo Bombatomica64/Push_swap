@@ -6,19 +6,19 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/04 17:48:14 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/05 17:11:31 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../ft_printf/libft/libft.h"
+# include "ft_printf/libft/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stddef.h>
-# include "../ft_printf/ft_printf.h"
+# include "ft_printf/ft_printf.h"
 
 typedef struct s_stack_node
 {
@@ -60,11 +60,9 @@ void			ft_ra(t_stack **stack_a);
 void			ft_rb(t_stack **stack_b, int fd);
 void			ft_rr(t_stack **stack_a, t_stack **stack_b, int fd);
 void			ft_rra_pre(t_stack **stack_a, int fd);
-void			ft_rra(t_stack **stack_a);
+void			ft_rra(t_stack **a_stack);
 void			ft_rrb(t_stack **stack_b, int fd);
 void			ft_rrr(t_stack **stack_a, t_stack **stack_b, int fd);
 void			ft_print_stack(t_stack *stack);
-void			ft_index_stack(t_stack **stack);
-void			ft_big_radix_sort(t_stack **a_stack, t_stack **b_stack);
 
 #endif

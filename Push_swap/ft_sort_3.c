@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:10:44 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/30 17:50:56 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/04 18:30:43 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ void	ft_sort_5(t_stack **a_stack, t_stack **b_stack, int fd)
 		while (*b_stack)
 		{
 			i = place_to_put(a_stack, (*b_stack)->nbr);
-			ft_print_stack(*a_stack);
-			ft_printf("i: %d\n", i);
 			if (i == 0)
 				ft_pa_pre(a_stack, b_stack, fd);
 			else if (i > 0)
@@ -75,13 +73,9 @@ void	ft_sort_5(t_stack **a_stack, t_stack **b_stack, int fd)
 					ft_rra_pre(a_stack, fd);
 				ft_pa_pre(a_stack, b_stack, fd);
 			}
-			ft_print_stack(*a_stack);
-			ft_printf("\n");
 			sorted = check_if_sorted(a_stack);
 		}
 	}
-	ft_print_stack(*a_stack);
-	ft_printf("sorted: %d\n", sorted);
 }
 
 int	place_to_put(t_stack **a_stack, int nbr)

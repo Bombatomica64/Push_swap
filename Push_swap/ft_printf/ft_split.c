@@ -6,97 +6,13 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 19:24:52 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/27 12:01:39 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/10/26 15:58:23 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
 #include "libft.h"
 
-static int	count_split_words(const char *s, char c)
-{
-	int	i;
-	int	words;
-
-	i = 0;
-	words = 0;
-	while (s[i] != '\0')
-	{
-		while (s[i] == c && s[i])
-		{
-			i++;
-		}
-		if (s[i] != c && s[i])
-		{
-			words++;
-			i++;
-			while (s[i] != c && s[i])
-			{
-				i++;
-			}
-		}
-	}
-	return (words);
-}
-
-static int	ft_chkrow(char **mtx, char *row)
-{
-	int	i;
-
-	i = 0;
-	if (!row)
-	{
-		while (mtx[i])
-		{
-			free(mtx[i]);
-			i++;
-		}
-		free(mtx);
-		return (0);
-	}
-	return (1);
-}
-
-static size_t	ft_lencalc(char *s, char c)
-{
-	size_t	len;
-
-	if (!ft_strchr(s, c))
-		len = ft_strlen(s);
-	else
-		len = ft_strchr(s, c) - s;
-	return (len);
-}
-
-char	**ft_split(char const *s, char c)
-{
-	char	**array;
-	size_t	len;
-	size_t	i;
-
-	i = 0;
-	array = (char **)malloc(sizeof(char *) * (count_split_words(s, c) + 1));
-	if (!array)
-		return (NULL);
-	while (*s)
-	{
-		while (*s && *s == c)
-			s++;
-		if (*s && *s != c)
-		{
-			len = ft_lencalc((char *)s, c);
-			array[i] = ft_substr(s, 0, len);
-			if (ft_chkrow(array, array[i++]) == 0)
-				return (NULL);
-			s += len;
-		}
-	}
-	array[i] = NULL;
-	return (array);
-}
-/*
-static char	*create_sub_str(int start, char const *s, cha#define NULL ((void*)0)
-r c)
+static char	*create_sub_str(int start, char const *s, char c)
 {
 	size_t		sub_str_len;
 	size_t		i;
@@ -173,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	return (matrix);
 }
 
-int main()
+/*int main()
 {
 	char	*input = "   lorem\""
 	char	**result = ft_split(input, 32);

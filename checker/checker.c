@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:31:58 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/05 17:01:41 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/06 15:02:00 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,12 +80,10 @@ int	main(int args, char **argv)
 
 	if (args <= 1)
 		return (0);
-	if (args == 2)
-	{
+	else if (args == 2)
 		stack_pre = ft_split(argv[1], ' ');
-	}
-	else if (args > 2)
-		stack_pre = argv + 1;
+	else
+		stack_pre = &argv[1];
 	stack_a = ft_mtoi(stack_pre);
 	if (!stack_a)
 	{

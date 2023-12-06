@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 11:47:38 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/11/02 12:20:28 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:54:33 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdio.h>
-# include "libft/libft.h"
+# include "libft.h"
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar(char c);

@@ -4,40 +4,25 @@ NAME = libftprintf.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFT_DIR = ./libft
-LIBFT = $(LIBFT_DIR)/libft.a
-
-GET_NEXT_LINE_DIR = ./get_next_line
-GET_NEXT_LINE = $(GET_NEXT_LINE_DIR)/get_next_line.a
-
-SRCS = ft_printf.c \
-      ft_printf_utils.c \
-	  ft_putnbr_base.c \
-	  ft_unsigned_itoa.c
+SRCS = ft_atoi.c     ft_isascii.c      ft_lstadd_front.c  ft_lstmap.c   ft_memcpy.c        ft_putchar_fd.c   ft_split.c     ft_strlcat.c  ft_strnstr.c  ft_toupper.c \
+ft_bzero.c    ft_isdigit.c      ft_lstclear.c      ft_lstnew.c   ft_memmove.c       ft_putendl_fd.c   ft_strchr.c    ft_strlcpy.c  ft_strrchr.c  ft_unsigned_itoa.c \
+ft_calloc.c   ft_isprint.c      ft_lstdelone.c     ft_lstsize.c  ft_memset.c        ft_putnbr_base.c  ft_strdup.c    ft_strlen.c   ft_strtrim.c  get_next_line_bonus.c \
+ft_isalnum.c  ft_itoa.c         ft_lstiter.c       ft_memchr.c   ft_printf.c        ft_putnbr_fd.c    ft_striteri.c  ft_strmapi.c  ft_substr.c   get_next_line_utils_bonus.c \
+ft_isalpha.c  ft_lstadd_back.c  ft_lstlast.c       ft_memcmp.c   ft_printf_utils.c  ft_putstr_fd.c    ft_strjoin.c   ft_strncmp.c  ft_tolower.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
-$(NAME): $(LIBFT) $(GET_NEXT_LINE) $(OBJS) 
+$(NAME): $(OBJS) 
 	ar rcs $(NAME) $(OBJS)
 	ranlib $(NAME)
 $(OBJS): %.o: %.c
-	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -c $< -o $@
-$(LIBFT): 
-	make all bonus -C $(LIBFT_DIR)
-	cp $(LIBFT) $(NAME)
-$(GET_NEXT_LINE):
-	make all -C $(GET_NEXT_LINE_DIR)
-	cp $(GET_NEXT_LINE) $(NAME)
+	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -I $(GET_NEXT_LINE_DIR) -c $< -o $@
 
 clean:
-	make clean -C $(LIBFT_DIR)
-	make clean -C $(GET_NEXT_LINE_DIR)
 	rm -f $(OBJS)
 
 fclean: clean
-	make fclean -C $(LIBFT_DIR)
-	make fclean -C $(GET_NEXT_LINE_DIR)
 	rm -f $(NAME)
 
 re: fclean all

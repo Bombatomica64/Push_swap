@@ -6,14 +6,14 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/05 17:11:31 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/06 12:57:32 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "ft_printf/libft/libft.h"
+# include "ft_printf/libft.h"
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>

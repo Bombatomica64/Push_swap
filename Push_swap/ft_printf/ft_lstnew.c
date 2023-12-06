@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/26 16:47:34 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/04 18:11:44 by lmicheli         ###   ########.fr       */
+/*   Created: 2023/10/18 09:56:35 by lmicheli          #+#    #+#             */
+/*   Updated: 2023/10/26 15:56:48 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_BONUS_H
-# define GET_NEXT_LINE_BONUS_H
+#include "libft.h"
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10000
-# endif
+t_list	*ft_lstnew(void *content)
+{
+	t_list	*new_node;
 
-# include <stddef.h>
-# include <stdlib.h>
-# include "../libft/libft.h"
-
-char	*get_next_line(int fd);
-char	*ft_read(char *old_str, int fd);
-char	*ft_get_strjoin(char *old_str, char *buf);
-char	*ft_correctline(char *old_str);
-char	*ft_resto(char *old_str);
-
-#endif
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (new_node)
+	{
+		new_node->content = content;
+		new_node->next = NULL;
+	}
+	else
+		return (NULL);
+	return (new_node);
+}

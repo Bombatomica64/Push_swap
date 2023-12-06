@@ -6,14 +6,14 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:47:28 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/04 18:12:59 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:04:47 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 #include <stdlib.h>
 
-char	*ft_get_strjoin(char *old_str, char *buf)
+char	*ft_newstrjoin(char *old_str, char *buf)
 {
 	char	*res;
 	size_t	i;

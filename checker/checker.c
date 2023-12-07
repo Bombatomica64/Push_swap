@@ -6,17 +6,23 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:31:58 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/06 15:02:00 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/07 17:41:21 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_checker.h"
 
-void	ft_error(void)
+/* static void	ft_print_stack(t_stack *stack)
 {
-	write(2, "Error\n", 6);
-	exit(0);
-}
+	t_stack	*tmp;
+
+	tmp = stack;
+	while (tmp)
+	{
+		ft_printf("number:%d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
+} */
 
 void	ft_make_move(char *line, t_stack **a_stack, t_stack **b_stack)
 {
@@ -57,19 +63,17 @@ void	ft_check_moves(int *stack_a, int *stack_b, int size)
 	a_stack = ft_make_list(stack_a, size);
 	b_stack = ft_make_list(stack_b, 0);
 	sorted = check_if_sorted(&a_stack);
-	line = get_next_line(1);
+	line = check_sorting_status(sorted, b_stack, 0);
 	read_bytes = ft_strlen(line);
 	while (read_bytes > 0)
 	{
 		ft_make_move(line, &a_stack, &b_stack);
-		line = get_next_line(1);
+		//ft_print_stack(a_stack);
+		sorted = check_if_sorted(&a_stack);
+		line = check_sorting_status(sorted, b_stack, &read_bytes);
 		read_bytes = ft_strlen(line);
+		free(line);
 	}
-	sorted = check_if_sorted(&a_stack);
-	if (sorted && !b_stack)
-		write(1, "OK\n", 3);
-	else
-		write(1, "KO\n", 3);
 }
 
 int	main(int args, char **argv)

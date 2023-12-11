@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:28:52 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/07 16:13:10 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/11 12:27:33 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ void	ft_rrr_no_print(t_stack **a_stack, t_stack **b_stack);
 void	ft_error(void);
 void	ft_ko(void);
 void	ft_ok(void);
-char	*check_sorting_status(int sorted, t_stack *b_stack, int read_bytes);
 
 #endif

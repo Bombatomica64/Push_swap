@@ -6,7 +6,7 @@
 #    By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/20 11:05:48 by lmicheli          #+#    #+#              #
-#    Updated: 2023/12/12 11:03:37 by lmicheli         ###   ########.fr        #
+#    Updated: 2023/12/12 11:09:22 by lmicheli         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,13 +18,13 @@ CC = cc -Wall -Wextra -Werror
 
 SRC = Push_swap.c ft_check_stack.c ft_make_list.c ft_matrix_size.c ft_mtoi.c \
 	  ft_push.c misc.c move.c reverse_spin.c spin.c ft_sort_3.c ending.c \
-	  index.c big_sort.c
+	  index.c big_sort.c ft_prints.c
 
 BONUS_SRC = ../checker/checker.c ../checker/moves_1.c ../checker/moves_2.c \
 			../checker/moves_3.c ending.c \
 			ft_check_stack.c ft_make_list.c ft_matrix_size.c ft_mtoi.c \
 	  		ft_push.c misc.c move.c reverse_spin.c spin.c ft_sort_3.c \
-			index.c big_sort.c
+			index.c big_sort.c ft_prints.c
 
 
 OBJ = $(SRC:.c=.o)

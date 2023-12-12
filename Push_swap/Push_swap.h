@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/12 10:35:54 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/12 11:08:22 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void			ft_ko(void);
 void			ft_ok(void);
 void			ft_index_stack(t_stack **a_stack);
 void			ft_big_radix_sort(t_stack **a_stack, t_stack **b_stack);
+void			ft_print_index(t_stack *stack);
 
 #endif

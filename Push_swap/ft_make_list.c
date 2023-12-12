@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 17:48:46 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/12 10:18:11 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/12 11:31:24 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_stack	*ft_stack_node_new(int nbr)
 	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node)
 	{
+		new_node->index = -1;
 		new_node->nbr = nbr;
 		new_node->prev = NULL;
 		new_node->next = NULL;

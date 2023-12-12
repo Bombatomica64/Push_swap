@@ -6,23 +6,11 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:03:04 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/12 10:42:43 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/12 11:08:34 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
-
-void	ft_print_stack(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	tmp = stack;
-	while (tmp)
-	{
-		ft_printf("number:%d\n", tmp->nbr);
-		tmp = tmp->next;
-	}
-}
 
 void	ft_sort(int *stack_a, int *stack_b, int size, int fd)
 {
@@ -31,6 +19,8 @@ void	ft_sort(int *stack_a, int *stack_b, int size, int fd)
 
 	a_stack = ft_make_list(stack_a, size);
 	b_stack = ft_make_list(stack_b, 0);
+	ft_print_index(a_stack);
+	exit(0);
 	if (check_if_sorted(&a_stack))
 		return ;
 	if (size <= 3)

@@ -14,17 +14,19 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 $(NAME): $(OBJS) 
-	ar rcs $(NAME) $(OBJS)
-	ranlib $(NAME)
+	@ar rcs $(NAME) $(OBJS)
+	@ranlib $(NAME)
+	@echo "Compiled "$(NAME)" successfully!"
 $(OBJS): %.o: %.c
-	$(CC) $(CFLAGS) -I $(LIBFT_DIR) -I $(GET_NEXT_LINE_DIR) -c $< -o $@
-
+	@$(CC) $(CFLAGS) -I $(LIBFT_DIR) -I $(GET_NEXT_LINE_DIR) -c $< -o $@
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
+	@echo "Cleaned objects successfully!"
 
 fclean: clean
-	rm -f $(NAME)
-
+	@rm -f $(NAME)
+	@echo "Cleaned "$(NAME)" successfully!"
+	
 re: fclean all
 
 .PHONY: NAME all clean fclean re

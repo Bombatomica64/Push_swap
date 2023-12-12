@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:31:58 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/11 12:26:58 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/12 10:42:50 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	main(int args, char **argv)
 	char	**stack_pre;
 
 	if (args <= 1)
-		return (0);
+		return (-1);
 	else if (args == 2)
 		stack_pre = ft_split(argv[1], ' ');
 	else

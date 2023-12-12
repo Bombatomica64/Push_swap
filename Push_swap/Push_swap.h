@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/07 16:43:03 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/12 10:35:54 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 typedef struct s_stack_node
 {
 	int						nbr;
+	int						index;
 	struct s_stack_node		*prev;
 	struct s_stack_node		*next;
 }		t_stack;
@@ -64,5 +65,10 @@ void			ft_rra(t_stack **a_stack);
 void			ft_rrb(t_stack **stack_b, int fd);
 void			ft_rrr(t_stack **stack_a, t_stack **stack_b, int fd);
 void			ft_print_stack(t_stack *stack);
+void			ft_error(void);
+void			ft_ko(void);
+void			ft_ok(void);
+void			ft_index_stack(t_stack **a_stack);
+void			ft_big_radix_sort(t_stack **a_stack, t_stack **b_stack);
 
 #endif

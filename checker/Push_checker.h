@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:28:52 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/11 12:27:33 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/11 16:50:28 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,5 @@ void	ft_rr_no_print(t_stack **a_stack, t_stack **b_stack);
 void	ft_rra_no_print(t_stack **a_stack);
 void	ft_rrb_no_print(t_stack **b_stack);
 void	ft_rrr_no_print(t_stack **a_stack, t_stack **b_stack);
-void	ft_error(void);
-void	ft_ko(void);
-void	ft_ok(void);
 
 #endif

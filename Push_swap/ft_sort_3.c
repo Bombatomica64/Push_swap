@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 16:10:44 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/04 18:30:43 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/12 10:26:54 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,19 +78,19 @@ void	ft_sort_5(t_stack **a_stack, t_stack **b_stack, int fd)
 	}
 }
 
-int	place_to_put(t_stack **a_stack, int nbr)
+int	place_to_put(t_stack **a_stack, int index)
 {
-	t_stack	*tmp;
-	int		i;
+	t_stack	*head;
+	int		distance;
 
-	i = 0;
-	tmp = *a_stack;
-	while (tmp)
+	distance = 0;
+	head = *a_stack;
+	while (head)
 	{
-		if (nbr <= tmp->nbr && (tmp->prev == NULL || nbr >= tmp->prev->nbr))
-			return (i);
-		tmp = tmp->next;
-		i++;
+		if (head->index == index)
+			break ;
+		distance++;
+		head = head->next;
 	}
-	return (i);
+	return (distance);
 }

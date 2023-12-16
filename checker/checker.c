@@ -6,48 +6,36 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:31:58 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/12 10:42:50 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/15 16:17:43 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_checker.h"
 
-/* static void	ft_print_stack(t_stack *stack)
-{
-	t_stack	*tmp;
-
-	tmp = stack;
-	while (tmp)
-	{
-		ft_printf("number:%d\n", tmp->nbr);
-		tmp = tmp->next;
-	}
-} */
-
 void	ft_make_move(char *line, t_stack **a_stack, t_stack **b_stack)
 {
-	if (ft_strncmp(line, "sa", 2) == 0)
+	if (ft_strcmp(line, "sa\n") == 0)
 		ft_sa_no_print(a_stack);
-	else if (ft_strncmp(line, "sb", 2) == 0)
+	else if (ft_strcmp(line, "sb\n") == 0)
 		ft_sb_no_print(b_stack);
-	else if (ft_strncmp(line, "ss", 2) == 0)
+	else if (ft_strcmp(line, "ss\n") == 0)
 		ft_ss_no_print(a_stack, b_stack);
-	else if (ft_strncmp(line, "pa", 2) == 0)
+	else if (ft_strcmp(line, "pa\n") == 0)
 		ft_pa_no_print(a_stack, b_stack);
-	else if (ft_strncmp(line, "pb", 2) == 0)
+	else if (ft_strcmp(line, "pb\n") == 0)
 		ft_pb_no_print(a_stack, b_stack);
-	else if (ft_strncmp(line, "ra", 2) == 0)
-		ft_ra_no_print(a_stack);
-	else if (ft_strncmp(line, "rb", 2) == 0)
-		ft_rb_no_print(b_stack);
-	else if (ft_strncmp(line, "rr", 2) == 0)
-		ft_rr_no_print(a_stack, b_stack);
-	else if (ft_strncmp(line, "rra", 3) == 0)
+	else if (ft_strcmp(line, "rra\n") == 0)
 		ft_rra_no_print(a_stack);
-	else if (ft_strncmp(line, "rrb", 3) == 0)
+	else if (ft_strcmp(line, "rrb\n") == 0)
 		ft_rrb_no_print(b_stack);
-	else if (ft_strncmp(line, "rrr", 3) == 0)
+	else if (ft_strcmp(line, "rrr\n") == 0)
 		ft_rrr_no_print(a_stack, b_stack);
+	else if (ft_strcmp(line, "ra\n") == 0)
+		ft_ra_no_print(a_stack);
+	else if (ft_strcmp(line, "rb\n") == 0)
+		ft_rb_no_print(b_stack);
+	else if (ft_strcmp(line, "rr\n") == 0)
+		ft_rr_no_print(a_stack, b_stack);
 	else
 		ft_error();
 }
@@ -87,13 +75,7 @@ int	main(int args, char **argv)
 		stack_pre = ft_split(argv[1], ' ');
 	else
 		stack_pre = &argv[1];
-	stack_a = ft_mtoi(stack_pre);
-	if (!stack_a)
-	{
-		write(2, "Error\n", 6);
-		ft_free_matrix(stack_pre);
-		return (0);
-	}
+	stack_a = ft_mtoi(stack_pre, args);
 	args = ft_matrix_len(stack_pre);
 	stack_b = NULL;
 	ft_check_moves(stack_a, stack_b, args);

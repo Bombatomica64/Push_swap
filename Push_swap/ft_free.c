@@ -1,48 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_stack.c                                   :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 11:43:29 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/15 16:11:47 by lmicheli         ###   ########.fr       */
+/*   Created: 2023/12/12 15:17:49 by lmicheli          #+#    #+#             */
+/*   Updated: 2023/12/12 15:44:28 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-int	ft_max(int a, int b)
+void	ft_free_matrix(char **array)
 {
-	if (a < b)
-		return (b);
-	return (a);
-}
-
-int	ft_check_stack(char **array)
-{
-	int		i;
-	char	*temp;
-	int		j;
-	int		min;
+	int	i;
 
 	i = 0;
 	while (array[i])
 	{
-		temp = array[i];
-		j = i;
-		while (array[j])
-		{
-			min = ft_max(ft_strlen(temp), ft_strlen(array[j]));
-			if (ft_strncmp(temp, array[j++], min) == 0)
-			{
-				write (2, "Error:0\n", 7);
-			//	ft_free_matrix(array);
-				exit(0);
-			}
-		}
+		free(array[i]);
 		i++;
 	}
-	free(temp);
-	return (1);
+	free(array);
+	array = NULL;
+}
+
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	while (*stack)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		free(tmp);
+	}
+	*stack = NULL;
+}
+
+void	ft_free_all_stack(t_stack **a_stack, t_stack **b_stack)
+{
+	ft_free_stack(a_stack);
+	ft_free_stack(b_stack);
 }

@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 16:16:51 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/12 10:13:25 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/15 15:58:46 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,16 @@ void	ft_rra_no_print(t_stack **a_stack)
 	t_stack	*tmp;
 	t_stack	*last;
 
-	if (!(*a_stack) || !(*a_stack)->next)
-		return ;
-	tmp = *a_stack;
+	tmp = (*a_stack);
 	while (tmp->next)
-	{
-		last = tmp;
 		tmp = tmp->next;
-	}
-	last->next = NULL;
-	tmp->next = *a_stack;
-	*a_stack = tmp;
+	last = tmp;
+	if (last->prev)
+		last->prev->next = NULL;
+	last->prev = NULL;
+	last->next = (*a_stack);
+	(*a_stack)->prev = last;
+	(*a_stack) = last;
 }
 
 void	ft_rrb_no_print(t_stack **b_stack)

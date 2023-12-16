@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 15:07:03 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/15 18:06:43 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/16 12:33:11 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	ft_big_radix_sort(t_stack **a_stack, t_stack **b_stack)
 	max_len = ft_index_max(a_stack);
 	if (check_if_sorted(a_stack))
 		return ;
-	while (shift < max_len)
+	while (shift++ < max_len)
 	{
 		i = 0;
 		while (i++ < size)
@@ -37,7 +37,7 @@ void	ft_big_radix_sort(t_stack **a_stack, t_stack **b_stack)
 		}
 		while (ft_list_size(*a_stack) < size)
 			ft_pa_pre(a_stack, b_stack, 1);
-		shift++;
+			//sesso
 	}
 }
 

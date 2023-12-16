@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 10:58:05 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/12 15:46:39 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/16 13:33:38 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_stack_node
 int				ft_check_stack(char **array);
 int				ft_max(int a, int b);
 int				*ft_mtoi(char **array, int args);
+void			ft_wrong_input(int args, char **array, int *stack);
 int				ft_matrix_len(char **array);
 int				check_if_sorted(t_stack **a_stack);
 int				ft_list_size(t_stack *stack);
@@ -39,7 +40,7 @@ int				ft_next_min(t_stack **stack, long min);
 int				ft_index_max(t_stack **a_stack);
 void			ft_sort(int **stack_a, int **stack_b, int size, int fd);
 void			ft_free_matrix(char **array);
-void			check_for_dupes(int *stack, int size);
+int				check_for_dupes(int *stack, int size);
 t_stack			*ft_stack_node_new(int nbr);
 t_stack			*ft_make_list(int *stack, int size);
 t_stack			*lst_lst(t_stack *stack);
@@ -74,5 +75,6 @@ int				ft_check_for_non_int(char *str);
 int				fake_atoi(char *str, int nbr);
 void			ft_free_stack(t_stack **stack);
 void			ft_free_all_stack(t_stack **a_stack, t_stack **b_stack);
+void			ft_free_all_stack_exit(t_stack **a_stack, t_stack **b_stack);
 
 #endif

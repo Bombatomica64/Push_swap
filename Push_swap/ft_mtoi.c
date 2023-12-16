@@ -6,13 +6,13 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 16:57:56 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/12 12:45:09 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/16 13:42:51 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Push_swap.h"
 
-void	check_for_dupes(int *stack, int size)
+int	check_for_dupes(int *stack, int size)
 {
 	int	i;
 	int	j;
@@ -24,14 +24,12 @@ void	check_for_dupes(int *stack, int size)
 		while (j < size)
 		{
 			if (stack[i] == stack[j])
-			{
-				free(stack);
-				ft_error();
-			}
+				return (0);
 			j++;
 		}
 		i++;
 	}
+	return (1);
 }
 
 int	fake_atoi(char *str, int nbr)
@@ -89,17 +87,23 @@ int	*ft_mtoi(char **array, int args)
 	while (array[i])
 	{
 		if (ft_check_for_non_int(array[i]) == 0)
-		{
-			if (args == 2)
-				ft_free_matrix(array);
-			free(stack);
-			ft_error();
-		}
+			ft_wrong_input(args, array, stack);
 		stack[i] = ft_atoi(array[i]);
 		i++;
 	}
-	check_for_dupes(stack, i);
+	if (check_for_dupes(stack, i) == 0)
+		ft_wrong_input(args, array, stack);
 	return (stack);
+}
+
+void	ft_wrong_input(int args, char **array, int *stack)
+{
+	{
+		if (args == 2)
+			ft_free_matrix(array);
+		free(stack);
+		ft_error();
+	}
 }
 // Path: ft_mtoi.c
 // Compare this snippet from Push_swap.h:

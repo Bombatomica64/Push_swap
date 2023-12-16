@@ -6,7 +6,7 @@
 /*   By: lmicheli <lmicheli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 17:31:58 by lmicheli          #+#    #+#             */
-/*   Updated: 2023/12/15 16:17:43 by lmicheli         ###   ########.fr       */
+/*   Updated: 2023/12/16 15:16:36 by lmicheli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,21 @@ void	ft_check_moves(int *stack_a, int *stack_b, int size)
 
 	a_stack = ft_make_list(stack_a, size);
 	b_stack = ft_make_list(stack_b, 0);
+	free(stack_a);
+	free(stack_b);
 	sorted = check_if_sorted(&a_stack);
 	line = get_next_line(STDIN_FILENO);
 	while (line)
 	{
 		ft_make_move(line, &a_stack, &b_stack);
+		free(line);
 		line = get_next_line(STDIN_FILENO);
 	}
 	sorted = check_if_sorted(&a_stack);
-	if (sorted && !b_stack)
+	if (b_stack)
+		sorted = 0;
+	ft_free_all_stack(&a_stack, &b_stack);
+	if (sorted != 0)
 		ft_ok();
 	else
 		ft_ko();
@@ -76,7 +82,15 @@ int	main(int args, char **argv)
 	else
 		stack_pre = &argv[1];
 	stack_a = ft_mtoi(stack_pre, args);
-	args = ft_matrix_len(stack_pre);
+	if (args == 2)
+	{
+		args = ft_matrix_len(stack_pre);
+		ft_free_matrix(stack_pre);
+	}
+	else
+		args = ft_matrix_len(stack_pre);
 	stack_b = NULL;
+	if (args == 2)
+		ft_free_matrix(stack_pre);
 	ft_check_moves(stack_a, stack_b, args);
 }
